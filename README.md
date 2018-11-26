@@ -1,9 +1,9 @@
 # pxl
-Draw pixels on an 2-dimensional integer lattice where the product of the cartesian coordinates plus n is prime.
+Draw pixels on an 2-dimensional integer lattice where the product of the cartesian coordinates plus _*n*_ is prime.
 
-###### _x*y+2_
+###### _*n*_ = 2
 ![screenshot](https://raw.githubusercontent.com/jrvieira/pxl/master/io/907x907pixel_xtyp2.png)
 
-###### _x*y+7_
+###### _*n*_ = 7
 ![screenshot](https://raw.githubusercontent.com/jrvieira/pxl/master/io/907x907pixel_xtyp7.png)
 
