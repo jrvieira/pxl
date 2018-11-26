@@ -11,10 +11,10 @@ ns = [0..7]
 -- png dimensions
 
 w :: Int
-w = 10 --2560
+w = 107 --2560
 
 h :: Int
-h = 10 --1440
+h = 107 --1440
 
 -- stdout colors
 
