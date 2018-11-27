@@ -5,18 +5,18 @@ import Data.Numbers.Primes
 import Codec.Picture
 import System.Directory
 
--- interval
-
-ns :: [Int]
-ns = [0..13] 
-
 -- png dimensions
 
 w :: Int
-w = 2560 --2560
+w = 970 -- width
 
 h :: Int
-h = 1440 --1440
+h = 970 -- height
+
+-- for n equals
+
+ns :: [Int]
+ns = [0..17]
 
 -- pixels
 
@@ -38,10 +38,10 @@ draw n = do
     let file = "io/" ++ show w ++ "x" ++ show h ++ "pixel_xtyp" ++ show n ++ ".png"
     done <- doesFileExist file
     if done
-        then putClrLn W file
+        then putClrLn W (file ++ " skipped") -- print existing file to console
         else do
             savePngImage file (ImageY8 (generateImage (xtypz n) w h))
-            putClrLn G file
+            putClrLn G file -- print drawn file to console
 
 -- -- draw many xtyp [z]
 
