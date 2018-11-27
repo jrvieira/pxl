@@ -8,10 +8,10 @@ import System.Directory
 -- png dimensions
 
 w :: Int
-w = 970 -- width
+w = 907 -- width
 
 h :: Int
-h = 970 -- height
+h = 907 -- height
 
 -- for n equals
 
