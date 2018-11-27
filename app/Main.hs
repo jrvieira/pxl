@@ -43,7 +43,7 @@ draw n = do
             savePngImage file (ImageY8 (generateImage (xtypz n) w h))
             putClrLn G file -- print drawn file to console
 
--- -- draw many xtyp [z]
+-- draw many xtyp [z]
 
 draw_list :: [Int] -> IO ()
 draw_list list = do
