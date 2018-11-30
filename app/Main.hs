@@ -15,7 +15,7 @@ white = 255
 
 -- dimensions
 
-type Dimensions = (Int, Int)
+type Dimensions = (Int,Int)
 
 -- function
 
@@ -25,7 +25,8 @@ xtypz z x y = if isPrime (x*y+z) then black else white
 -- rendering
 
 draw :: Dimensions -> Int -> IO ()
-draw d n = do 
+draw d n = do
+   createDirectoryIfMissing True "io"
    done <- doesFileExist file
    if done then 
       putClrLn W (file ++ " skipped") -- print existing file to console
@@ -33,7 +34,7 @@ draw d n = do
       savePngImage file $ ImageY8 $ generateImage (xtypz n) w h
       putClrLn G file -- print drawn file to console
    where
-      (w, h) = d
+      (w,h) = d
       file = "io/" ++ show w ++ "x" ++ show h ++ "pixel_xtyp" ++ show n ++ ".png"
 
 -- draw many xtyp [z]
@@ -50,10 +51,9 @@ main = do
    if length args == 4 then let
       (w:h:from:to:_) = map read args
       list = [from .. to]
-      in do
-      createDirectoryIfMissing True "io"
-      draw_list (w, h) list
+      in
+      draw_list (w,h) list
    else do
-      putClr R "use with args:"
-      putClrLn W "whidth height from to"
+      putClr R "args:"
+      putClrLn W "width height from to"
       pure ()
