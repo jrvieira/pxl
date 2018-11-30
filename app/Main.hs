@@ -2,11 +2,8 @@ import System.IO
 import System.Environment
 import System.Directory
 import Data.Numbers.Primes
-import qualified Data.Map as Map
 import Color
 import Codec.Picture
-import Control.Concurrent
-import Control.Parallel.Strategies
 
 -- pixels
 
