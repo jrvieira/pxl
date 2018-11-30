@@ -25,16 +25,16 @@ xtypz z x y = if isPrime (x*y+z) then black else white
 -- rendering
 
 draw :: Dimensions -> Int -> IO ()
-draw d n = let
-   (w, h) = d
-   file = "io/" ++ show w ++ "x" ++ show h ++ "pixel_xtyp" ++ show n ++ ".png"
-   in do 
+draw d n = do 
    done <- doesFileExist file
    if done then 
       putClrLn W (file ++ " skipped") -- print existing file to console
    else do 
       savePngImage file $ ImageY8 $ generateImage (xtypz n) w h
       putClrLn G file -- print drawn file to console
+   where
+      (w, h) = d
+      file = "io/" ++ show w ++ "x" ++ show h ++ "pixel_xtyp" ++ show n ++ ".png"
 
 -- draw many xtyp [z]
 
