@@ -1,5 +1,6 @@
 module Color
 ( Color (..)
+, putClr
 , putClrLn
 ) where
 
@@ -21,6 +22,9 @@ instance Show Color where
     show c = "\x1b[" ++ (show . code) c ++ "m"
 
 type ColorOut = Color -> String -> IO () 
+
+putClr :: ColorOut
+putClr c s = putStr $ show c ++ s ++ show Reset ++ " "
 
 putClrLn :: ColorOut
 putClrLn c s = putStrLn $ show c ++ s ++ show Reset
