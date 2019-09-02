@@ -28,9 +28,9 @@ draw :: Dimensions -> Int -> IO ()
 draw d n = do
    createDirectoryIfMissing True "io"
    done <- doesFileExist file
-   if done then 
+   if done then
       putClrLn W (file ++ " skipped") -- print existing file to console
-   else do 
+   else do
       savePngImage file $ ImageY8 $ generateImage (xtypz n) w h
       putClrLn G file -- print drawn file to console
    where
