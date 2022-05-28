@@ -16,19 +16,12 @@ main = do
       putClr R "Args:"
       putClrLn W "width height from to"
 
+type Dimensions = (Int,Int)
+
 go :: [String] -> IO ()
 go args = mapM_ (draw (w,h)) [from .. to]
    where
    (w:h:from:to:_) = map read args
-
--- dimensions
-
-type Dimensions = (Int,Int)
-
--- function
-
-xtypz :: Int -> Int -> Int -> Pixel8
-xtypz z x y = if isPrime (x*y+z) then 0 else 255
 
 -- rendering
 
@@ -38,4 +31,9 @@ draw (w,h) n = do
    putClrLn G file -- print drawn file to console
    where
    file = "io/" ++ show w ++ "x" ++ show h ++ "pixel_xtyp" ++ show n ++ ".png"
+
+-- function
+
+xtypz :: Int -> Int -> Int -> Pixel8
+xtypz z x y = if isPrime (x*y+z) then 0 else 255
 
