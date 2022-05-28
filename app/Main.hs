@@ -21,7 +21,7 @@ type Dimensions = (Int,Int)
 draw :: Dimensions -> Int -> IO ()
 draw (w,h) n = do
    savePngImage file $ ImageY8 $ generateImage (xtypz n) w h
-   putClrLn G file -- print drawn file to console
+   putClrLn G file
    where
    file = "io/" ++ show w ++ "x" ++ show h ++ "pixel_xtyp" ++ show n ++ ".png"
 
