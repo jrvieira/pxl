@@ -4,26 +4,19 @@ import Data.Numbers.Primes
 import Color
 import Codec.Picture
 
--- prompt
-
 main :: IO ()
 main = do
    createDirectoryIfMissing True "io"
    args <- getArgs
-   if length args == 4 then do
-      go args
-   else do
-      putClr R "Args:"
-      putClrLn W "width height from to"
-
-type Dimensions = (Int,Int)
-
-go :: [String] -> IO ()
-go args = mapM_ (draw (w,h)) [from .. to]
+   go args
    where
-   (w:h:from:to:_) = map read args
+   go args
+      | [w,h,from,to] <- read <$> args = mapM_ (draw (w,h)) [from .. to]
+      | otherwise = putClr R "Exactly 4 arguments needed:" >> putClrLn W "width height from to"
 
 -- rendering
+
+type Dimensions = (Int,Int)
 
 draw :: Dimensions -> Int -> IO ()
 draw (w,h) n = do
