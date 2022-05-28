@@ -15,7 +15,6 @@ main = do
    else do
       putClr R "Args:"
       putClrLn W "width height from to"
-      pure ()
 
 go :: [String] -> IO ()
 go args = mapM_ (draw (w,h)) [from .. to]
